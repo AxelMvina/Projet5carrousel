@@ -40,3 +40,27 @@ function showSlideInBanner(slide) {
 }
 
 
+function initCarousel() {
+    const prevSlideButton = document.querySelector('.arrow_left');
+    const nextSlideButton = document.querySelector('.arrow_right');
+
+    let currentIndex = 0;
+
+    // Affichage initial du premier slide
+    showSlideInBanner(slides[currentIndex]);
+
+    // Écouteur d'événement pour le clic sur le bouton précédent
+    prevSlideButton.addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlideInBanner(slides[currentIndex]);
+    });
+
+    // Écouteur d'événement pour le clic sur le bouton suivant
+    nextSlideButton.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlideInBanner(slides[currentIndex]);
+    });
+}
+
+// Initialisation du carrousel
+initCarousel();
