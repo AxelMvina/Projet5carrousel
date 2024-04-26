@@ -19,7 +19,7 @@ const slides = [
 
 
 
-// Fonction pour afficher le slide actif dans les éléments existants
+//Fonction pour afficher le slide actif dans les éléments existants
 function showSlideInBanner(slide) {
     const bannerImg = document.querySelector('.banner-img');
     const bannerText = document.querySelector('#banner p');
@@ -46,18 +46,24 @@ function initCarousel() {
 
     let currentIndex = 0;
 
-    // Affichage initial du premier slide
+    //Affichage initial du premier slide
     showSlideInBanner(slides[currentIndex]);
 
-    // Écouteur d'événement pour le clic sur le bouton précédent
+    //clic sur le bouton précédent
     prevSlideButton.addEventListener('click', function() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        currentIndex = currentIndex - 1;
+        if  (currentIndex  === -1) {
+            currentIndex = slides.length -1
+        }
         showSlideInBanner(slides[currentIndex]);
     });
 
-    // Écouteur d'événement pour le clic sur le bouton suivant
+    //clic sur le bouton suivant
     nextSlideButton.addEventListener('click', function() {
-        currentIndex = (currentIndex + 1) % slides.length;
+        currentIndex = currentIndex + 1;
+        if (currentIndex > slides.length -1){
+            currentIndex = 0
+        }
         showSlideInBanner(slides[currentIndex]);
     });
 }
