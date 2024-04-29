@@ -17,8 +17,6 @@ const slides = [
 	}
 ]
 
-
-
 //Fonction pour afficher le slide actif dans les éléments existants
 function showSlideInBanner(slide) {
     const bannerImg = document.querySelector('.banner-img');
@@ -38,7 +36,6 @@ function showSlideInBanner(slide) {
         }
     });
 }
-
 
 function initCarousel() {
     const prevSlideButton = document.querySelector('.arrow_left');
